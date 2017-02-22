@@ -12,6 +12,9 @@ module.exports = {
                 throw new Error(res.data.message);
             }
             else {
+                if (res.data.list.length === 0) {
+                   throw new Error("City not found"); 
+                }
                 return res.data.list[0].main.temp;
             }
         }, function(err) {
